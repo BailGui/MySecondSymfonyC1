@@ -4,6 +4,11 @@ Installation de la version lts (Long Term Support) avec la majorité des bibliot
 
     symfony new MySecondSymfonyC1 -- webapp --version=lts
 
+en cas d'oubli de --webapp
+
+    cd MySecondSymfonyC1
+    composer require webapp
+
 ## Mise à jour des versions de sécurités
 
     composer update
