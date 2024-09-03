@@ -100,3 +100,89 @@ templates/home/menu.html.twig
 </nav>
 
 ```
+
+#### Modification de index.html.twig
+
+```
+{% extends 'base.html.twig' %}
+
+{# on surcharge le block title avec {{ parent }}
+    et le titre passé par le contrôleur
+#}
+{% block title %}{{ parent() }} | {{ title }}{% endblock %}
+
+
+{% block body %}
+    <div class="container">
+        <h1>{{ title }}</h1>
+{# inclusion depuis la racine du projet ! (templates) #}
+{% include 'home/menu.html.twig' %}
+    </div>
+
+{% endblock %}`
+```
+
+About est similaire.
+
+#### Création de notre .env.local
+
+Le fichier .env est le fichier de configuration qui est mis sur git et donc github
+
+C'est pour celà que nous allons le copier sous le nom de .env.local
+
+```
+cp .env .env.local
+```
+
+Ouvrez .env.local
+
+Changez cette ligne
+
+```
+APP_ENV=dev
+APP_SECRET=c6f06c078199d1f00879e1b9c146cddf
+en
+
+APP_ENV=prod
+APP_SECRET=une_autre_clef_secrete_sécurité
+```
+
+si vous retapez php bin/console debug:route
+
+Vous ne trouverez plus que les routes de production
+
+Dans le fichier .env.local
+
+### Trouvez la ligne de base de données :
+
+```
+
+# DATABASE_URL="mysql://app:!ChangeMe!@127.0.0.1:3306/app?serverVersion=8.0.32&charset=utf8mb4"
+
+# DATABASE_URL="mysql://app:!ChangeMe!@127.0.0.1:3306/app?serverVersion=10.11.2-MariaDB&charset=utf8mb4"
+
+DATABASE_URL="postgresql://app:!ChangeMe!@127.0.0.1:5432/app?serverVersion=16&charset=utf8"
+Commentez la ligne postgresql et décommentez la ligne mysql
+
+Ensuite passez vos paramètres de connexion dans l'ordre
+
+utilisateur:mot_de_passe@ip_serveur:port/nomdelaDB?options
+
+DATABASE_URL="mysql://root:@127.0.0.1:3306/mysecondesymfonyc1?serverVersion=8.0.31&charset=utf8mb4"
+
+# DATABASE_URL="mysql://app:!ChangeMe!@127.0.0.1:3306/app?serverVersion=10.11.2-MariaDB&charset=utf8mb4"
+
+# DATABASE_URL="postgresql://app:!ChangeMe!@127.0.0.1:5432/app?serverVersion=16&charset=utf8"
+
+```
+
+### Création de la DB
+
+```
+php bin/console doctrine:database:create
+
+```
+
+La base de donnée devrait être créée si mysql.exe est activé ou Wamp démarré
+
+### Création d'une entité
