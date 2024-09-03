@@ -40,3 +40,21 @@ Le nom doit être en PascalCase terminé par Controller, mais Symfony se charge 
 On va vérifier la route par défaut
 
     php bin/console debug:route
+
+#### Modification de la route
+
+```php
+    src/Controller/HomeController.php
+
+# ...
+
+    #[Route('/home', name: 'homepage')]
+    public function index(): Response
+
+# ...
+
+```
+
+On peut accéder à l'accueil depuis la racine de notre
+
+https://127.0.0.1:8000/
