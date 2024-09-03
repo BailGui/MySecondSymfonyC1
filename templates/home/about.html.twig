@@ -8,10 +8,7 @@
 {% block body %}
     <div class="container">
         <h1>{{ title }}</h1>
-        <nav>
-            {# on utilise path('nom du chemin') lorsqu'on veut un lien vers une page#}
-            <a href="{{ path('homepage') }}">Homepage</a>
-        </nav>
+      {% include 'home/menu.html.twig' %}
     </div>
 
 {% endblock %}
