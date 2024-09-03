@@ -17,3 +17,7 @@ Installation de la version lts (Long Term Support) avec la majorité des bibliot
 Pour le fermer
 
     symfony server:stop
+
+L'adresse est généralement de type https://127.0.0.1:8000/
+
+### Création d'un contrôleur
