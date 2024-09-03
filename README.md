@@ -13,3 +13,7 @@ Installation de la version lts (Long Term Support) avec la majorité des bibliot
     symfony serve -d
     ou
     symfony server:start -d
+
+Pour le fermer
+
+    symfony server:stop
