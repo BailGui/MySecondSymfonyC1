@@ -15,4 +15,12 @@ class HomeController extends AbstractController
             'title' => 'Homepage',
         ]);
     }
+    new* 
+    #[Route('/home', name: 'homepage')]
+    public function index(): Response
+    {
+        return $this->render('home/index.html.twig', [
+            'title' => 'Homepage',
+        ]);
+    }
 }

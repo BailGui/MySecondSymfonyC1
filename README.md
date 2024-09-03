@@ -58,3 +58,31 @@ On va vérifier la route par défaut
 On peut accéder à l'accueil depuis la racine de notre
 
 https://127.0.0.1:8000/
+
+#### Modification de base.html.twig
+
+```twig
+{# templates/base.html.twig"}
+{# ... #}
+<title>{% block title %}MySecondSymfonyC1{% endblock %}</title>
+" ...
+
+```
+
+#### Modification de index.html.twig
+
+```twig
+
+{# template/index.html.twig #}
+{# ... #}
+{#{% block title %}{{ parent() }} | {{ title }}{% endblock %}#}
+{# ... #}
+  <div class="container">
+        <h1>{{ title }}</h1>
+        <nav>
+            {# on utilise path('nom du chemin') lorsqu'on veut un lien vers une page#}
+            <a href="{{ path('Homepage) }}">Homepage</a>
+        </nav>
+    </div>
+
+```
