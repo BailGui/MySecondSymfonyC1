@@ -86,3 +86,17 @@ https://127.0.0.1:8000/
     </div>
 
 ```
+
+#### Création du menu avec twig
+
+templates/home/menu.html.twig
+
+```twig
+
+<nav>
+    {# on utilise path('nom du chemin') lorsqu'on veut un lien vers une page#}
+    <a href="{{ path('homepage') }}">Homepage</a>
+    <a href="{{ path('about_me') }}">About me</a>
+</nav>
+
+```
